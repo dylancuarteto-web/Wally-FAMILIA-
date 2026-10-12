@@ -155,7 +155,6 @@ button,.st,.pc,nav a{touch-action:manipulation;user-select:none;-webkit-user-sel
   </section>
 </main>
 
-<script src="config.js"></script>
 <script>
 const NAMES=["rolo","mery","abel","judith","july","jose","jose (padrino)","alex","marcos","Andrés","Dylan","milton","micky","Silvana"];
 const DIAS=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
@@ -229,7 +228,7 @@ function render(){
 $("env").onclick=send;$("txt").onkeydown=e=>{if(e.key==="Enter")send()};
 function send(){const t=$("txt").value.trim();if(!t||!need())return;$("txt").value="";w(()=>db.collection("chat").add({name:me,text:t,ts:Date.now()}))}
 
-const FIREBASE_URL=window.FIREBASE_URL||"PEGA_AQUI_TU_URL";
+const FIREBASE_URL="https://wally-59809-default-rtdb.firebaseio.com";
 const LOCAL=FIREBASE_URL.includes("PEGA_AQUI"),BASE=FIREBASE_URL.replace(/\/$/,"");
 let O={},pending=0,loadFails=0;
 function setPath(o,p,val){const k=p.split("/");let c=o;k.slice(0,-1).forEach(x=>{if(typeof c[x]!=="object"||c[x]===null)c[x]={};c=c[x]});c[k[k.length-1]]=val}
